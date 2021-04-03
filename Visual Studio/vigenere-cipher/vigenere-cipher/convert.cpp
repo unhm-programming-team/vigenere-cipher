@@ -6,7 +6,6 @@ string customInput(int inputMethod) {
 		loop = 1;
 	}
 	string output = "";
-	
 	bool clear = 1;
 	do {
 		clear = 1;
@@ -79,5 +78,52 @@ void encrypt() {
 }
 
 void decrypt() {
-	cout << "Not currently implemented.\n";
+	string keyword, encrypted;
+	keyword = customInput(1);
+	encrypted = customInput(2);
+	string lowers = "abcdefghijklmnopqrstuvwxyz";
+	string uppers = "ABCDEFGJIJKLMNOPQRSTUVWXYZ";
+	string output = "";
+	int encryptedData = 0;
+	int keywordData = 0;
+	int keywordPos = 0;
+	int specialData = 0;
+	for (int i = 0; i < encrypted.size(); i++) {
+		if (isalpha(encrypted[i])) {
+			if (isupper(encrypted[i])) {
+				encryptedData = uppers.find(encrypted[i]);
+			}
+			else if (islower(encrypted[i])) {
+				encryptedData = lowers.find(encrypted[i]);
+			}
+			if (isupper(keyword[keywordPos])) {
+				keywordData = uppers.find(keyword[keywordPos]);
+			}
+			else if (islower(keyword[keywordPos])) {
+				keywordData = lowers.find(keyword[keywordPos]);
+			}
+			if (isupper(encrypted[i])) {
+				specialData = encryptedData - keywordData;
+				if (specialData < 0) {
+					specialData = specialData + 26;
+				}
+				output = output + uppers[specialData % 26];
+			}
+			else if (islower(encrypted[i])) {
+				specialData = encryptedData - keywordData;
+				if (specialData < 0) {
+					specialData = specialData + 26;
+				}
+				output = output + lowers[specialData % 26];
+			}
+		}
+		else {
+			output = output + encrypted[i];
+		}
+		keywordPos = keywordPos + 1;
+		if (keywordPos >= keyword.size()) {
+			keywordPos = 0;
+		}
+	}
+	cout << output << endl;
 }
