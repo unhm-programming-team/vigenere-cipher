@@ -40,7 +40,7 @@ void encrypt() {
 	keyword = customInput(1);
 	plaintext = customInput(0);
 	string lowers = "abcdefghijklmnopqrstuvwxyz";
-	string uppers = "ABCDEFGJIJKLMNOPQRSTUVWXYZ";
+	string uppers = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	string output = "";
 	int plaintextData = 0;
 	int keywordData = 0;
@@ -82,7 +82,7 @@ void decrypt() {
 	keyword = customInput(1);
 	encrypted = customInput(2);
 	string lowers = "abcdefghijklmnopqrstuvwxyz";
-	string uppers = "ABCDEFGJIJKLMNOPQRSTUVWXYZ";
+	string uppers = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	string output = "";
 	int encryptedData = 0;
 	int keywordData = 0;
