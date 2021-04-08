@@ -1,11 +1,16 @@
 #include "convert.h"
 
+//Prompts the user for an input, if keyword isn't purely alphabetical, loops until an all alphabetical keyword is provided.
+//"inputMethod" expects prompts 0, 1, or 2, being the plaintext, keyword, and encrypted text prompts respectively.
 string customInput(int inputMethod) {
+	//"loop" variable, mainly used for inputMethod 1, the keyword prompt.
 	bool loop = 0;
 	if (inputMethod == 1) {
 		loop = 1;
 	}
+	//Empty "output" string variable to be appended to.
 	string output = "";
+	//Since the loop evaluates on a per-character basis, this bool keeps the error message from repeating more than once per response.
 	bool clear = 1;
 	do {
 		clear = 1;
@@ -35,6 +40,7 @@ string customInput(int inputMethod) {
 	return output;
 }
 
+//Function to encrypt the text provided by the user.
 void encrypt() {
 	string keyword, plaintext;
 	keyword = customInput(1);
@@ -69,7 +75,9 @@ void encrypt() {
 		else {
 			output = output + plaintext[i];
 		}
-		keywordPos = keywordPos + 1;
+		if (isalpha(plaintext[i])) {
+			keywordPos = keywordPos + 1;
+		}
 		if (keywordPos >= keyword.size()) {
 			keywordPos = 0;
 		}
@@ -77,6 +85,7 @@ void encrypt() {
 	cout << output << endl;
 }
 
+//Function to decrypt the text provided by the user.
 void decrypt() {
 	string keyword, encrypted;
 	keyword = customInput(1);
@@ -120,7 +129,9 @@ void decrypt() {
 		else {
 			output = output + encrypted[i];
 		}
-		keywordPos = keywordPos + 1;
+		if (isalpha(encrypted[i])) {
+			keywordPos = keywordPos + 1;
+		}
 		if (keywordPos >= keyword.size()) {
 			keywordPos = 0;
 		}

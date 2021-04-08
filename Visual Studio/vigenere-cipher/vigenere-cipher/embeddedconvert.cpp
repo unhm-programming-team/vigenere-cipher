@@ -1,4 +1,5 @@
 #include "embeddedconvert.h"
+//Version of the encrypt function from convert.cpp without printed output to the user.
 string embedEncrypt(string keyword, string plaintext) {
 	string lowers = "abcdefghijklmnopqrstuvwxyz";
 	string uppers = "ABCDEFGJIJKLMNOPQRSTUVWXYZ";
@@ -38,6 +39,7 @@ string embedEncrypt(string keyword, string plaintext) {
 	return output;
 }
 
+//Version of the decrypt function from convert.cpp without printed output to the user.
 string embedDecrypt(string encrypted, string keyword) {
 	string lowers = "abcdefghijklmnopqrstuvwxyz";
 	string uppers = "ABCDEFGJIJKLMNOPQRSTUVWXYZ";
