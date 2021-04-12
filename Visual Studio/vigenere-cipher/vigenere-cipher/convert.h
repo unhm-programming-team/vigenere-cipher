@@ -5,3 +5,4 @@ using namespace std;
 
 void encrypt();
 void decrypt();
+string customInput(int inputMethod);

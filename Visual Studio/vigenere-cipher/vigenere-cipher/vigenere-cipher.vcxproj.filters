@@ -27,6 +27,9 @@
     <ClCompile Include="embeddedconvert.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="randConvert.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="input.h">
@@ -36,6 +39,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="embeddedconvert.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="randConvert.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
